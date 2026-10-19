@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souvik Roy | Full-Stack Developer & Business Automation Specialist</title>
+    <title>Build Tech | Web Development & Business Automation</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Space Grotesk -->
@@ -86,25 +86,12 @@
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 selection:bg-brand-500 selection:text-white">
 
-    <!-- ==================== LIVE BRAND NAME PREVIEWER BANNER ==================== -->
     <div class="bg-slate-900 text-white border-b border-slate-800 px-3 py-2.5 text-xs sm:text-sm relative z-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5">
-            <div class="flex items-center gap-2 text-center md:text-left">
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-brand-500/20 text-brand-400 border border-brand-500/30">
-                    <i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i>Brand Name Previewer
-                </span>
-                <span class="text-slate-300">Click to test 3 brand & domain options for your portfolio:</span>
-            </div>
-            <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-                <button onclick="setBrand(0)" id="brand-btn-0" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-brand-600 text-white shadow-sm">
-                    1. RoyTech Solutions <span class="opacity-75 text-[11px] hidden sm:inline">(roytech.dev)</span>
-                </button>
-                <button onclick="setBrand(1)" id="brand-btn-1" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
-                    2. AutomateWithSouvik <span class="opacity-75 text-[11px] hidden sm:inline">(souvikbuilds.in)</span>
-                </button>
-                <button onclick="setBrand(2)" id="brand-btn-2" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
-                    3. SR Digital Labs <span class="opacity-75 text-[11px] hidden sm:inline">(srdigitallabs.com)</span>
-                </button>
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <span class="font-semibold text-white">Build Tech</span>
+            <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+                <a href="tel:+919734264466" class="text-slate-300 hover:text-white transition-colors"><i class="fa-solid fa-phone mr-1.5"></i>9734264466</a>
+                <a href="mailto:roysouvik500@gmail.com" class="text-slate-300 hover:text-white transition-colors"><i class="fa-solid fa-envelope mr-1.5"></i>roysouvik500@gmail.com</a>
             </div>
         </div>
     </div>
@@ -115,12 +102,11 @@
             <!-- Dynamic Brand Logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
-                    <span id="nav-logo-initials">RT</span>
+                    <span>BT</span>
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
-                        <span id="nav-brand-name" class="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white">RoyTech Solutions</span>
-                        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 border border-slate-200 dark:border-slate-700" id="nav-brand-domain">roytech.dev</span>
+                        <span class="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white">Build Tech</span>
                     </div>
                     <p class="text-[11px] text-slate-500 dark:text-slate-400">by <strong class="text-slate-700 dark:text-slate-200">Souvik Roy</strong> • Software Engineer</p>
                 </div>
@@ -128,7 +114,7 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
-                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Why Me</a>
+                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Contact</a>
                 <a href="#services" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Automation & Services</a>
                 <a href="#pricing" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
                     <span>Website Plans</span>
@@ -159,7 +145,7 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-5 space-y-3">
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Why Souvik Roy</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Contact</a>
             <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Automation & Services</a>
             <a href="#pricing" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-brand-600 dark:text-brand-400 font-semibold">Website Packages (₹5,499 - ₹25,000)</a>
             <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Interactive Cost Calculator</a>
@@ -311,58 +297,18 @@
         </div>
     </section>
 
-    <!-- ==================== BRAND NAME SUGGESTIONS SHOWCASE SECTION ==================== -->
+    <!-- ==================== CONTACT SECTION ==================== -->
     <section id="about" class="py-16 bg-white dark:bg-slate-900/40 border-b border-slate-200/60 dark:border-slate-800/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10">
+            <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
                 <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Curated Identity Options for Souvik Roy</span>
-                    <h2 class="font-display text-2xl sm:text-3xl font-bold mt-1 text-slate-900 dark:text-white">3 Brand Name Options for Your Freelance Business</h2>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Click any card below to preview that brand name live across this entire website.</p>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Build Tech</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold mt-1 text-slate-900 dark:text-white">Let's build something for your business</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Contact us to discuss your website or automation project.</p>
                 </div>
-                <div class="text-xs px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                    <i class="fa-solid fa-lightbulb text-amber-400 mr-1.5"></i>Tip: You can keep your personal name <strong>Souvik Roy</strong> front-and-center with any of these!
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Option 1 -->
-                <div onclick="setBrand(0)" id="brand-card-0" class="cursor-pointer rounded-2xl p-6 border-2 border-brand-500 bg-brand-500/5 dark:bg-brand-500/10 transition-all hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-brand-600 text-white">Option 1 • Agency & B2B Vibe</span>
-                        <i class="fa-solid fa-circle-check text-brand-500 text-lg" id="brand-check-0"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">RoyTech Solutions</h3>
-                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">roytech.dev / souvikroy.dev</p>
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
-                        Positions you as a trustworthy software & automation partner for serious businesses, retail owners, and startups looking for long-term support.
-                    </p>
-                </div>
-
-                <!-- Option 2 -->
-                <div onclick="setBrand(1)" id="brand-card-1" class="cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Option 2 • Automation Specialist</span>
-                        <i class="fa-regular fa-circle text-slate-400 text-lg" id="brand-check-1"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">AutomateWithSouvik</h3>
-                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">souvikbuilds.in / automatewithsouvik.com</p>
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
-                        Directly communicates your core superpower: helping business owners save hours every week by automating manual tasks and growing online.
-                    </p>
-                </div>
-
-                <!-- Option 3 -->
-                <div onclick="setBrand(2)" id="brand-card-2" class="cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1">
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Option 3 • Modern Tech Studio</span>
-                        <i class="fa-regular fa-circle text-slate-400 text-lg" id="brand-check-2"></i>
-                    </div>
-                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">SR Digital Labs</h3>
-                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">srdigitallabs.com / srdigital.in</p>
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
-                        Sleek, modern studio branding using your initials (Souvik Roy). Ideal for selling custom web apps, e-commerce platforms, and SaaS tools.
-                    </p>
+                <div class="flex flex-col gap-3 text-sm">
+                    <a href="tel:+919734264466" class="inline-flex items-center gap-3 font-semibold text-slate-800 dark:text-slate-200 hover:text-brand-500"><i class="fa-solid fa-phone text-brand-500"></i>9734264466</a>
+                    <a href="mailto:roysouvik500@gmail.com" class="inline-flex items-center gap-3 font-semibold text-slate-800 dark:text-slate-200 hover:text-brand-500"><i class="fa-solid fa-envelope text-brand-500"></i>roysouvik500@gmail.com</a>
                 </div>
             </div>
         </div>
@@ -810,7 +756,7 @@
                     <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
                         <div>
                             <span class="text-xs uppercase tracking-wider text-brand-400 font-bold">Live Proposal Summary</span>
-                            <h3 class="font-display text-xl font-bold mt-0.5" id="summary-brand-title">RoyTech Solutions</h3>
+                            <h3 class="font-display text-xl font-bold mt-0.5" id="summary-brand-title">Build Tech</h3>
                         </div>
                         <span class="px-2.5 py-1 rounded-lg bg-accent-500/20 text-accent-400 text-xs font-semibold">
                             1 Yr Hosting Included
@@ -916,10 +862,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 rounded-xl bg-brand-600 text-white font-display font-bold flex items-center justify-center text-sm" id="footer-logo-initials">
-                    RT
+                    BT
                 </div>
                 <div>
-                    <div class="text-white font-display font-bold text-base" id="footer-brand-name">RoyTech Solutions</div>
+                    <div class="text-white font-display font-bold text-base">Build Tech</div>
                     <div class="text-xs text-slate-500">Founded by <strong class="text-slate-300">Souvik Roy</strong> • Software Engineer (2+ Yrs Exp.)</div>
                 </div>
             </div>
@@ -932,66 +878,15 @@
             </div>
 
             <div class="text-xs text-slate-500">
-                © <span id="current-year">2026</span> Souvik Roy. All Plans Include 1 Year Hosting & Support.
+                © <span id="current-year">2026</span> Build Tech. All Plans Include 1 Year Hosting & Support.
             </div>
         </div>
     </footer>
 
     <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        // 1. Brand Options Data for Souvik Roy
-        const brandOptions = [
-            {
-                name: "RoyTech Solutions",
-                domain: "roytech.dev",
-                initials: "RT"
-            },
-            {
-                name: "AutomateWithSouvik",
-                domain: "souvikbuilds.in",
-                initials: "AS"
-            },
-            {
-                name: "SR Digital Labs",
-                domain: "srdigitallabs.com",
-                initials: "SR"
-            }
-        ];
-
-        let currentBrandIndex = 0;
         let selectedPlanName = "Multi-Page Business Website";
         let selectedBasePrice = 10999;
-
-        // Switch Brand Identity Live across Navbar, Cards, Estimator, and Footer
-        function setBrand(index) {
-            currentBrandIndex = index;
-            const brand = brandOptions[index];
-
-            // Update Navbar & Footer
-            document.getElementById('nav-brand-name').textContent = brand.name;
-            document.getElementById('nav-brand-domain').textContent = brand.domain;
-            document.getElementById('nav-logo-initials').textContent = brand.initials;
-            document.getElementById('footer-brand-name').textContent = brand.name;
-            document.getElementById('footer-logo-initials').textContent = brand.initials;
-            document.getElementById('summary-brand-title').textContent = brand.name;
-
-            // Update Top Banner Buttons
-            for (let i = 0; i < 3; i++) {
-                const btn = document.getElementById(`brand-btn-${i}`);
-                const card = document.getElementById(`brand-card-${i}`);
-                const check = document.getElementById(`brand-check-${i}`);
-
-                if (i === index) {
-                    btn.className = "brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-brand-600 text-white shadow-sm";
-                    card.className = "cursor-pointer rounded-2xl p-6 border-2 border-brand-500 bg-brand-500/5 dark:bg-brand-500/10 transition-all hover:-translate-y-1";
-                    check.className = "fa-solid fa-circle-check text-brand-500 text-lg";
-                } else {
-                    btn.className = "brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
-                    card.className = "cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1";
-                    check.className = "fa-regular fa-circle text-slate-400 text-lg";
-                }
-            }
-        }
 
         // 2. Plan Selection & Live Price Calculator
         function selectPlan(planName, price, scrollToCalc = true) {
@@ -1054,7 +949,6 @@
             const clientName = document.getElementById('client-name').value.trim() || "Business Owner";
             const clientPhone = document.getElementById('client-phone').value.trim() || "Not provided";
             const clientNotes = document.getElementById('client-notes').value.trim() || "Interested in website & business automation.";
-            const brandName = brandOptions[currentBrandIndex].name;
 
             const checkboxes = document.querySelectorAll('.addon-checkbox:checked');
             let addonsList = [];
@@ -1067,14 +961,14 @@
             const total = selectedBasePrice + addonsTotal;
             const addonsText = addonsList.length > 0 ? addonsList.join(", ") : "None";
 
-            const message = `Hi Souvik Roy (${brandName}),\n\nI would like to book the *${selectedPlanName}* (${formatINR(selectedBasePrice)} - Includes 1 Year Free Hosting & Support).\n\n*Selected Add-ons:* ${addonsText}\n*Estimated Total:* ${formatINR(total)}\n\n*My Name:* ${clientName}\n*Contact:* ${clientPhone}\n*Requirement:* ${clientNotes}`;
+            const message = `Hi Build Tech,\n\nI would like to book the *${selectedPlanName}* (${formatINR(selectedBasePrice)} - Includes 1 Year Free Hosting & Support).\n\n*Selected Add-ons:* ${addonsText}\n*Estimated Total:* ${formatINR(total)}\n\n*My Name:* ${clientName}\n*Contact:* ${clientPhone}\n*Requirement:* ${clientNotes}`;
 
             const feedbackBox = document.getElementById('inquiry-feedback');
             feedbackBox.classList.remove('hidden');
 
             if (mode === 'whatsapp') {
                 const encoded = encodeURIComponent(message);
-                window.open(`https://wa.me/?text=${encoded}`, '_blank');
+                window.open(`https://wa.me/919734264466?text=${encoded}`, '_blank');
                 feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check text-accent-400 mr-1.5"></i> Opening WhatsApp with your customized ${selectedPlanName} quote!`;
             } else {
                 // Fallback clipboard copy for iFrame compatibility
@@ -1085,7 +979,7 @@
                 document.execCommand('copy');
                 document.body.removeChild(tempInput);
 
-                feedbackBox.innerHTML = `<i class="fa-solid fa-check text-accent-400 mr-1.5"></i> Proposal summary copied to clipboard! You can paste it in an email or WhatsApp message to Souvik Roy.`;
+                feedbackBox.innerHTML = `<i class="fa-solid fa-check text-accent-400 mr-1.5"></i> Proposal summary copied to clipboard! You can paste it in an email or WhatsApp message to Build Tech.`;
             }
         }
 
