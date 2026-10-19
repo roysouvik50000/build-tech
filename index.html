@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souvik Roy | Full-Stack Developer & Business Automation Specialist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        accent: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --glow-indigo: rgba(99, 102, 241, 0.18);
+            --glow-emerald: rgba(16, 185, 129, 0.15);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .hero-mesh {
+            background-image: 
+                radial-gradient(at 15% 20%, var(--glow-indigo) 0px, transparent 50%),
+                radial-gradient(at 85% 75%, var(--glow-emerald) 0px, transparent 50%);
+        }
+        .grid-pattern {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+        }
+        .popular-card-glow {
+            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.35);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 selection:bg-brand-500 selection:text-white">
+
+    <!-- ==================== LIVE BRAND NAME PREVIEWER BANNER ==================== -->
+    <div class="bg-slate-900 text-white border-b border-slate-800 px-3 py-2.5 text-xs sm:text-sm relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2.5">
+            <div class="flex items-center gap-2 text-center md:text-left">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-brand-500/20 text-brand-400 border border-brand-500/30">
+                    <i class="fa-solid fa-wand-magic-sparkles mr-1.5"></i>Brand Name Previewer
+                </span>
+                <span class="text-slate-300">Click to test 3 brand & domain options for your portfolio:</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+                <button onclick="setBrand(0)" id="brand-btn-0" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-brand-600 text-white shadow-sm">
+                    1. RoyTech Solutions <span class="opacity-75 text-[11px] hidden sm:inline">(roytech.dev)</span>
+                </button>
+                <button onclick="setBrand(1)" id="brand-btn-1" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    2. AutomateWithSouvik <span class="opacity-75 text-[11px] hidden sm:inline">(souvikbuilds.in)</span>
+                </button>
+                <button onclick="setBrand(2)" id="brand-btn-2" class="brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700">
+                    3. SR Digital Labs <span class="opacity-75 text-[11px] hidden sm:inline">(srdigitallabs.com)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== STICKY NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Dynamic Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                    <span id="nav-logo-initials">RT</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span id="nav-brand-name" class="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white">RoyTech Solutions</span>
+                        <span class="hidden sm:inline-block text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-brand-600 dark:text-brand-400 border border-slate-200 dark:border-slate-700" id="nav-brand-domain">roytech.dev</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">by <strong class="text-slate-700 dark:text-slate-200">Souvik Roy</strong> • Software Engineer</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#about" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Why Me</a>
+                <a href="#services" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Automation & Services</a>
+                <a href="#pricing" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5">
+                    <span>Website Plans</span>
+                    <span class="px-1.5 py-0.5 text-[10px] font-bold bg-accent-500/15 text-accent-600 dark:text-accent-400 rounded-full">From ₹5,499</span>
+                </a>
+                <a href="#calculator" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Custom Quote</a>
+                <a href="#faq" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" aria-label="Toggle Dark/Light Mode" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 transition-colors">
+                    <i id="theme-icon" class="fa-solid fa-sun text-amber-400"></i>
+                </button>
+
+                <a href="#pricing" class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5">
+                    <span>View Plans</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 pt-3 pb-5 space-y-3">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Why Souvik Roy</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Automation & Services</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-brand-600 dark:text-brand-400 font-semibold">Website Packages (₹5,499 - ₹25,000)</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Interactive Cost Calculator</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-brand-500">Hosting & Support FAQ</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block w-full text-center bg-brand-600 text-white font-semibold py-2.5 rounded-xl shadow-md">Book Free Consultation</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="relative hero-mesh grid-pattern pt-12 pb-20 sm:pt-20 sm:pb-28 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Hero Copy -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-600 dark:text-brand-400 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-accent-500 animate-ping"></span>
+                        <span>Hi, I'm <strong>Souvik Roy</strong> • 2+ Years Software Industry Experience</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-slate-900 dark:text-white">
+                        Websites & Smart Automation That <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-indigo-400 to-accent-400">Scale Your Business.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Stop losing customers to slow websites and manual repetitive work. With <strong>2+ years of hands-on software engineering experience</strong>, I build high-converting websites, custom e-commerce stores, and automated workflows—all backed by <span class="underline decoration-accent-500 decoration-2 font-semibold text-slate-900 dark:text-white">1 Year of FREE Hosting & Technical Support</span>.
+                    </p>
+
+                    <!-- Primary CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#pricing" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-semibold shadow-xl shadow-brand-600/25 transition-all hover:-translate-y-0.5">
+                            <span>Explore Fixed-Price Plans</span>
+                            <i class="fa-solid fa-tags text-sm"></i>
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-800 transition-all">
+                            <i class="fa-solid fa-bolt text-amber-400"></i>
+                            <span>Automate My Business</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Micro-points -->
+                    <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-accent-500"></i>
+                            <span>1 Year Free Hosting & SSL</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-accent-500"></i>
+                            <span>1 Year Priority Support</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-accent-500"></i>
+                            <span>No Hidden Renewal Traps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Developer Profile & Automation Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-2xl">
+                        <!-- Top Status Header -->
+                        <div class="flex items-center justify-between pb-6 mb-6 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-600 to-accent-500 p-0.5">
+                                    <div class="w-full h-full bg-slate-950 rounded-[14px] flex items-center justify-center text-white font-display font-bold text-xl">
+                                        SR
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <h2 class="font-display font-bold text-lg text-slate-900 dark:text-white">Souvik Roy</h2>
+                                        <span class="px-2 py-0.5 text-[11px] font-semibold bg-accent-500/15 text-accent-600 dark:text-accent-400 rounded-md">Verified Dev</span>
+                                    </div>
+                                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Software Engineer • 2+ Yrs Industry Exp.</p>
+                                </div>
+                            </div>
+                            <span class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-accent-500 bg-accent-500/10 px-2.5 py-1 rounded-full">
+                                <span class="w-2 h-2 rounded-full bg-accent-500"></span> Available
+                            </span>
+                        </div>
+
+                        <!-- Value Pillars inside profile card -->
+                        <div class="space-y-3.5 mb-6">
+                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800 flex items-start gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-brand-500/15 text-brand-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-gears"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Workflow Automation</h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Auto-capture leads on WhatsApp, automated invoicing, CRM sync & custom business scripts.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800 flex items-start gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-accent-500/15 text-accent-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-rocket"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Full-Stack Web & E-Com</h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Blazing fast React/Next.js websites, custom admin dashboards & Razorpay/UPI payment stores.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/70 dark:border-slate-800 flex items-start gap-3.5">
+                                <div class="w-9 h-9 rounded-xl bg-amber-500/15 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-server"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-semibold text-slate-900 dark:text-white">Zero Tech Headache for 1 Full Year</h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Every plan includes 1 year of web hosting, SSL security, deployment & direct developer support.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Price Snapshot Bar -->
+                        <div class="p-4 rounded-2xl bg-gradient-to-r from-brand-600/10 via-indigo-500/10 to-accent-500/10 border border-brand-500/20 flex items-center justify-between">
+                            <div>
+                                <span class="text-[11px] uppercase tracking-wider font-semibold text-brand-600 dark:text-brand-400">All-Inclusive Packages</span>
+                                <p class="text-sm font-bold text-slate-900 dark:text-white">Starting at ₹5,499 <span class="text-xs font-normal text-slate-500">(Hosting Included)</span></p>
+                            </div>
+                            <a href="#pricing" class="px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold transition-all">
+                                Compare <i class="fa-solid fa-arrow-down ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Quick Stats Strip -->
+            <div class="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-center sm:text-left">
+                    <div class="text-2xl sm:text-3xl font-display font-bold text-brand-600 dark:text-brand-400">2+ Years</div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Software Industry Experience</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-center sm:text-left">
+                    <div class="text-2xl sm:text-3xl font-display font-bold text-accent-600 dark:text-accent-400">1 Year FREE</div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Hosting, SSL & Tech Support</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-center sm:text-left">
+                    <div class="text-2xl sm:text-3xl font-display font-bold text-slate-900 dark:text-white">10x Faster</div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Business Operations via Automation</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 text-center sm:text-left">
+                    <div class="text-2xl sm:text-3xl font-display font-bold text-amber-500">100% Custom</div>
+                    <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">Mobile-First & SEO Ready Code</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BRAND NAME SUGGESTIONS SHOWCASE SECTION ==================== -->
+    <section id="about" class="py-16 bg-white dark:bg-slate-900/40 border-b border-slate-200/60 dark:border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Curated Identity Options for Souvik Roy</span>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold mt-1 text-slate-900 dark:text-white">3 Brand Name Options for Your Freelance Business</h2>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Click any card below to preview that brand name live across this entire website.</p>
+                </div>
+                <div class="text-xs px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                    <i class="fa-solid fa-lightbulb text-amber-400 mr-1.5"></i>Tip: You can keep your personal name <strong>Souvik Roy</strong> front-and-center with any of these!
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Option 1 -->
+                <div onclick="setBrand(0)" id="brand-card-0" class="cursor-pointer rounded-2xl p-6 border-2 border-brand-500 bg-brand-500/5 dark:bg-brand-500/10 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-brand-600 text-white">Option 1 • Agency & B2B Vibe</span>
+                        <i class="fa-solid fa-circle-check text-brand-500 text-lg" id="brand-check-0"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">RoyTech Solutions</h3>
+                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">roytech.dev / souvikroy.dev</p>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
+                        Positions you as a trustworthy software & automation partner for serious businesses, retail owners, and startups looking for long-term support.
+                    </p>
+                </div>
+
+                <!-- Option 2 -->
+                <div onclick="setBrand(1)" id="brand-card-1" class="cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Option 2 • Automation Specialist</span>
+                        <i class="fa-regular fa-circle text-slate-400 text-lg" id="brand-check-1"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">AutomateWithSouvik</h3>
+                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">souvikbuilds.in / automatewithsouvik.com</p>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
+                        Directly communicates your core superpower: helping business owners save hours every week by automating manual tasks and growing online.
+                    </p>
+                </div>
+
+                <!-- Option 3 -->
+                <div onclick="setBrand(2)" id="brand-card-2" class="cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Option 3 • Modern Tech Studio</span>
+                        <i class="fa-regular fa-circle text-slate-400 text-lg" id="brand-check-2"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white">SR Digital Labs</h3>
+                    <p class="text-xs font-mono text-brand-600 dark:text-brand-400 mt-0.5">srdigitallabs.com / srdigital.in</p>
+                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3">
+                        Sleek, modern studio branding using your initials (Souvik Roy). Ideal for selling custom web apps, e-commerce platforms, and SaaS tools.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES & BUSINESS AUTOMATION SECTION ==================== -->
+    <section id="services" class="py-20 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-accent-500/10 text-accent-600 dark:text-accent-400 border border-accent-500/20">
+                    <i class="fa-solid fa-microchip"></i> Built for Business Growth
+                </span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold mt-3 text-slate-900 dark:text-white">
+                    How I Help Businesses Automate Work & Grow Revenue
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-3 text-base">
+                    With 2+ years in the software industry, I don't just hand over a static template—I build complete digital systems that bring you leads and reduce manual effort.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Service 1 -->
+                <div class="rounded-3xl p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all group shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">High-Converting Business Websites</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Custom, mobile-responsive websites engineered for speed, SEO visibility, and turning visitors into paying inquiries.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>React, Next.js, Tailwind & Modern UI</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Easy Admin CMS to edit text & photos</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Google Search & Local SEO Ready</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="rounded-3xl p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-accent-500/50 transition-all group shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-accent-500/10 text-accent-600 dark:text-accent-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Business Workflow Automation</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Eliminate repetitive data entry and manual follow-ups. I connect your website, WhatsApp, CRM, and Google Sheets automatically.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Instant WhatsApp & Email Lead Alerts</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Automated PDF Quotations & Invoices</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Custom AI Chatbots for 24/7 Replies</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="rounded-3xl p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 transition-all group shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-2">Custom E-Commerce & Payments</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                        Launch your own online store without paying hefty monthly marketplace commissions. Sell directly with UPI, Cards, and NetBanking.
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-500 dark:text-slate-400">
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Razorpay, PhonePe & Stripe Integration</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Product Catalog, Cart & Coupon System</li>
+                        <li><i class="fa-solid fa-check text-accent-500 mr-2"></i>Order Tracking & Inventory Dashboard</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CUSTOM PRICING PLANS SECTION (CORE REQUIREMENT) ==================== -->
+    <section id="pricing" class="py-20 sm:py-28 bg-slate-100/70 dark:bg-slate-900/50 border-y border-slate-200 dark:border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-500/15 text-accent-700 dark:text-accent-300 border border-accent-500/30 text-xs sm:text-sm font-bold mb-4">
+                    <i class="fa-solid fa-gift text-accent-500"></i>
+                    <span>ALL PLANS INCLUDE 1 YEAR FREE HOSTING & TECHNICAL SUPPORT</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
+                    Transparent, Fixed-Price Website Plans
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-4 text-base sm:text-lg">
+                    No confusing hourly bills. Pick the package that fits your business stage—every plan comes ready to launch with <strong>1 full year of hosting & personal support by Souvik Roy</strong>.
+                </p>
+            </div>
+
+            <!-- 3 Pricing Cards Grid -->
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+                <!-- PLAN 1: BASIC PORTFOLIO WEBSITE (₹5,499) -->
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-7 sm:p-8 flex flex-col justify-between transition-all hover:-translate-y-1 shadow-lg">
+                    <div>
+                        <!-- Top Plan Tag -->
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                                Starter / Personal
+                            </span>
+                            <span class="text-xs font-semibold text-accent-600 dark:text-accent-400 flex items-center gap-1">
+                                <i class="fa-solid fa-server"></i> 1 Yr Free Hosting
+                            </span>
+                        </div>
+
+                        <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Basic Portfolio Website</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                            Perfect for freelancers, consultants, creators, doctors, and local startups who need a strong online presence fast.
+                        </p>
+
+                        <!-- Price Display -->
+                        <div class="my-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-baseline gap-2">
+                                <span class="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">₹5,499</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">/ one-time setup</span>
+                            </div>
+                            <div class="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 dark:text-accent-400 bg-accent-500/10 px-2.5 py-1 rounded-lg">
+                                <i class="fa-solid fa-shield-heart"></i> Includes 1 Year Hosting + Support (₹0 Extra)
+                            </div>
+                        </div>
+
+                        <!-- Features List -->
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">What's Included:</p>
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Up to 4 Modern Sections / Pages</strong> (Home, About, Services/Work, Contact)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>100% Mobile, Tablet & Desktop Responsive</strong> clean UI design</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Direct WhatsApp Chat Button</strong> & Lead Inquiry Contact Form</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span>Social Media Links, Resume/Brochure Download & Fast Loading</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span>Basic On-Page SEO & Google Indexing Setup</span>
+                            </li>
+                            <li class="flex items-start gap-3 font-semibold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl">
+                                <i class="fa-solid fa-gift text-brand-500 mt-0.5 shrink-0"></i>
+                                <span>1 Year Free High-Speed Hosting, Free SSL Certificate & Technical Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center justify-between">
+                            <span><i class="fa-regular fa-clock mr-1"></i>Delivery: <strong>3–5 Days</strong></span>
+                            <span><i class="fa-solid fa-code mr-1"></i>Custom Code</span>
+                        </div>
+                        <button onclick="selectPlan('Basic Portfolio Website', 5499)" class="w-full py-3.5 px-5 rounded-2xl font-semibold text-sm bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+                            <span>Select Basic Plan (₹5,499)</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLAN 2: MULTI-PAGE BUSINESS WEBSITE (₹10,999) - MOST POPULAR -->
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border-2 border-brand-500 p-7 sm:p-8 flex flex-col justify-between relative popular-card-glow lg:-translate-y-3 transition-all">
+                    <!-- Floating Popular Ribbon -->
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-brand-600 to-accent-500 text-white text-xs font-bold uppercase tracking-wider shadow-md whitespace-nowrap">
+                        <i class="fa-solid fa-fire mr-1"></i> Most Popular for Growing Businesses
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4 pt-2">
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-500/15 text-brand-600 dark:text-brand-400">
+                                Business & Lead Automation
+                            </span>
+                            <span class="text-xs font-semibold text-accent-600 dark:text-accent-400 flex items-center gap-1">
+                                <i class="fa-solid fa-server"></i> 1 Yr Free Hosting
+                            </span>
+                        </div>
+
+                        <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Multi-Page Business Website</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                            Designed for companies, agencies, clinics, real estate, and service businesses ready to automate inquiries and scale.
+                        </p>
+
+                        <!-- Price Display -->
+                        <div class="my-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-baseline gap-2">
+                                <span class="font-display text-4xl sm:text-5xl font-extrabold text-brand-600 dark:text-brand-400">₹10,999</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">/ complete package</span>
+                            </div>
+                            <div class="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 dark:text-accent-400 bg-accent-500/10 px-2.5 py-1 rounded-lg">
+                                <i class="fa-solid fa-shield-heart"></i> Includes 1 Year Hosting + Priority Support
+                            </div>
+                        </div>
+
+                        <!-- Features List -->
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Everything in Basic, plus:</p>
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1 shrink-0"></i>
+                                <span><strong>6–10 Custom Dynamic Pages</strong> (Home, About, Services, Projects, Blog, Contact, etc.)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1 shrink-0"></i>
+                                <span><strong>Admin Panel / CMS Dashboard</strong> to easily update content, services & images anytime</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1 shrink-0"></i>
+                                <span><strong>Automated Lead Capture:</strong> Inquiries sent straight to your WhatsApp, Email & Google Sheet</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1 shrink-0"></i>
+                                <span><strong>Custom Business Emails</strong> (e.g., info@yourbusiness.com) + Google Maps & Analytics</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>Complete On-Page SEO, Speed Optimization & Testimonials Showcase</span>
+                            </li>
+                            <li class="flex items-start gap-3 font-semibold text-slate-900 dark:text-white bg-brand-500/10 border border-brand-500/20 p-2.5 rounded-xl">
+                                <i class="fa-solid fa-gift text-brand-500 mt-0.5 shrink-0"></i>
+                                <span>1 Year Free Cloud Hosting, SSL Security, Backups & Priority Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center justify-between">
+                            <span><i class="fa-regular fa-clock mr-1"></i>Delivery: <strong>7–10 Days</strong></span>
+                            <span><i class="fa-solid fa-bolt text-amber-500 mr-1"></i>Lead Automation</span>
+                        </div>
+                        <button onclick="selectPlan('Multi-Page Business Website', 10999)" class="w-full py-4 px-5 rounded-2xl font-semibold text-sm bg-brand-600 hover:bg-brand-500 text-white shadow-lg shadow-brand-600/30 transition-all flex items-center justify-center gap-2">
+                            <span>Select Business Plan (₹10,999)</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLAN 3: CUSTOM E-COMMERCE & AUTOMATION WEBSITE (₹25,000) -->
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-7 sm:p-8 flex flex-col justify-between transition-all hover:-translate-y-1 shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/15 text-purple-600 dark:text-purple-400">
+                                E-Commerce & Scale
+                            </span>
+                            <span class="text-xs font-semibold text-accent-600 dark:text-accent-400 flex items-center gap-1">
+                                <i class="fa-solid fa-server"></i> 1 Yr Free Hosting
+                            </span>
+                        </div>
+
+                        <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white">Custom E-Com & Automation</h3>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                            Full-featured online store & automated operations for retail brands, D2C businesses, and wholesalers selling 24/7.
+                        </p>
+
+                        <!-- Price Display -->
+                        <div class="my-6 pb-6 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-baseline gap-2">
+                                <span class="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white">₹25,000</span>
+                                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">/ full store build</span>
+                            </div>
+                            <div class="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 dark:text-accent-400 bg-accent-500/10 px-2.5 py-1 rounded-lg">
+                                <i class="fa-solid fa-shield-heart"></i> 1 Year High-Speed Hosting & Dedicated Support
+                            </div>
+                        </div>
+
+                        <!-- Features List -->
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Complete Store + Automation Suite:</p>
+                        <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-300 mb-8">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Custom E-Commerce Storefront</strong> with Categories, Filters, Search, Cart & Wishlist</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Payment Gateway Integration</strong> (UPI, GPay, PhonePe, Credit/Debit Cards via Razorpay)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Full Store Admin Dashboard:</strong> Manage Products, Inventory, Coupons & Customer Orders</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span><strong>Order Automation:</strong> Auto GST/PDF Invoice generation + Automated Order Status Notifications</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1 shrink-0"></i>
+                                <span>Customer Login Accounts, Order History & Shipping/Delivery API Ready</span>
+                            </li>
+                            <li class="flex items-start gap-3 font-semibold text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl">
+                                <i class="fa-solid fa-gift text-brand-500 mt-0.5 shrink-0"></i>
+                                <span>1 Year Free High-Performance Hosting, SSL & Dedicated Maintenance Support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mb-3 flex items-center justify-between">
+                            <span><i class="fa-regular fa-clock mr-1"></i>Delivery: <strong>14–21 Days</strong></span>
+                            <span><i class="fa-solid fa-credit-card mr-1"></i>UPI / Cards Ready</span>
+                        </div>
+                        <button onclick="selectPlan('Custom E-Commerce Website', 25000)" class="w-full py-3.5 px-5 rounded-2xl font-semibold text-sm bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2">
+                            <span>Select E-Com Plan (₹25,000)</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 1 Year Hosting & Support Guarantee Callout Box -->
+            <div class="mt-12 rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 border border-slate-800 shadow-xl">
+                <div class="grid md:grid-cols-12 gap-6 items-center">
+                    <div class="md:col-span-8 space-y-2">
+                        <div class="inline-flex items-center gap-2 text-accent-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-handshake"></i> Souvik Roy's 1-Year Peace of Mind Guarantee
+                        </div>
+                        <h3 class="font-display text-xl sm:text-2xl font-bold">What does "1 Year Hosting & Support Included" mean for your business?</h3>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            Most freelancers build a site and disappear, leaving you confused when servers crash or minor updates are needed. With my packages, <strong>your first 12 months of cloud hosting, SSL security, uptime monitoring, bug fixes, and minor content assistance are 100% covered</strong> at zero additional cost.
+                        </p>
+                    </div>
+                    <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-3 justify-end">
+                        <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <div class="text-xs text-slate-400">Estimated Yearly Market Value Saved</div>
+                            <div class="font-display text-2xl font-bold text-accent-400">₹6,000+ Saved Free</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE PLAN CUSTOMIZER & QUOTE CALCULATOR ==================== -->
+    <section id="calculator" class="py-20 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Instant Project Estimator</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2 text-slate-900 dark:text-white">
+                    Customize Your Plan & Book a Free Call
+                </h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-2">
+                    Select a base website package and optional business automation add-ons to get an instant transparent estimate.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                <!-- Left Column: Plan & Addon Selector -->
+                <div class="lg:col-span-7 space-y-6 bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    
+                    <!-- Step 1: Choose Base Plan -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                            1. Select Your Website Package (Includes 1 Yr Hosting & Support)
+                        </label>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="selectPlan('Basic Portfolio Website', 5499, false)" id="calc-plan-5499" class="calc-plan-btn text-left p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all">
+                                <div class="text-xs text-slate-500 dark:text-slate-400">Starter</div>
+                                <div class="font-display font-bold text-sm text-slate-900 dark:text-white mt-0.5">Basic Portfolio</div>
+                                <div class="font-display font-extrabold text-lg text-brand-600 dark:text-brand-400 mt-1">₹5,499</div>
+                            </button>
+
+                            <button type="button" onclick="selectPlan('Multi-Page Business Website', 10999, false)" id="calc-plan-10999" class="calc-plan-btn text-left p-4 rounded-2xl border-2 border-brand-500 bg-brand-500/10 transition-all">
+                                <div class="text-xs text-brand-600 dark:text-brand-400 font-semibold">Most Popular</div>
+                                <div class="font-display font-bold text-sm text-slate-900 dark:text-white mt-0.5">Business Website</div>
+                                <div class="font-display font-extrabold text-lg text-brand-600 dark:text-brand-400 mt-1">₹10,999</div>
+                            </button>
+
+                            <button type="button" onclick="selectPlan('Custom E-Commerce Website', 25000, false)" id="calc-plan-25000" class="calc-plan-btn text-left p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all">
+                                <div class="text-xs text-slate-500 dark:text-slate-400">Online Store</div>
+                                <div class="font-display font-bold text-sm text-slate-900 dark:text-white mt-0.5">Custom E-Com</div>
+                                <div class="font-display font-extrabold text-lg text-brand-600 dark:text-brand-400 mt-1">₹25,000</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Optional Automation Add-ons -->
+                    <div class="pt-2">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                            2. Optional Workflow Automation Add-Ons (Click to Toggle)
+                        </label>
+                        <div class="space-y-3">
+                            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="addon-checkbox w-4 h-4 accent-brand-600 rounded" data-name="WhatsApp Auto-Reply & CRM Sheet Sync" data-price="1999" onchange="updateEstimate()">
+                                    <div>
+                                        <div class="text-sm font-semibold text-slate-900 dark:text-white">WhatsApp Lead Auto-Reply & Google Sheet CRM Sync</div>
+                                        <div class="text-xs text-slate-500">Automatically message new leads on WhatsApp & log them in Sheets</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 shrink-0 ml-2">+₹1,999</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="addon-checkbox w-4 h-4 accent-brand-600 rounded" data-name="Custom AI Customer Support Chatbot" data-price="2999" onchange="updateEstimate()">
+                                    <div>
+                                        <div class="text-sm font-semibold text-slate-900 dark:text-white">24/7 AI Business Assistant Chatbot</div>
+                                        <div class="text-xs text-slate-500">Trained on your services & FAQs to qualify leads automatically</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 shrink-0 ml-2">+₹2,999</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition-colors">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="addon-checkbox w-4 h-4 accent-brand-600 rounded" data-name="Appointment Booking & Calendar Automation" data-price="1499" onchange="updateEstimate()">
+                                    <div>
+                                        <div class="text-sm font-semibold text-slate-900 dark:text-white">Automated Appointment / Consultation Scheduler</div>
+                                        <div class="text-xs text-slate-500">Let clients book time slots with automated calendar invites</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-brand-600 dark:text-brand-400 shrink-0 ml-2">+₹1,499</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Client Details -->
+                    <div class="pt-2 space-y-4">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">
+                            3. Your Details
+                        </label>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Your Name *</label>
+                                <input type="text" id="client-name" placeholder="e.g., Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Phone / WhatsApp Number *</label>
+                                <input type="tel" id="client-phone" placeholder="e.g., +91 98765 43210" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-brand-500">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">Tell me briefly about your business or automation goal</label>
+                            <textarea id="client-notes" rows="3" placeholder="e.g., We run a service agency and need a multi-page website with WhatsApp inquiry automation..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: Live Summary & Send Box -->
+                <div class="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 sticky top-24 shadow-2xl">
+                    <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-brand-400 font-bold">Live Proposal Summary</span>
+                            <h3 class="font-display text-xl font-bold mt-0.5" id="summary-brand-title">RoyTech Solutions</h3>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-accent-500/20 text-accent-400 text-xs font-semibold">
+                            1 Yr Hosting Included
+                        </span>
+                    </div>
+
+                    <div class="space-y-3 text-sm mb-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">Selected Package:</span>
+                            <span class="font-semibold text-white" id="summary-plan-name">Multi-Page Business Website</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">Base Package Price:</span>
+                            <span class="font-semibold text-white" id="summary-base-price">₹10,999</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400">1 Year Hosting + SSL + Support:</span>
+                            <span class="font-semibold text-accent-400">FREE (Included)</span>
+                        </div>
+
+                        <!-- Dynamic Addons Container -->
+                        <div id="summary-addons-list" class="pt-2 border-t border-slate-800/80 space-y-2 hidden"></div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 mb-6 flex items-center justify-between">
+                        <div>
+                            <div class="text-xs text-slate-400">Estimated Total Investment</div>
+                            <div class="text-[11px] text-accent-400">Includes 12 Months Free Hosting & Support</div>
+                        </div>
+                        <div class="font-display text-3xl font-extrabold text-white" id="summary-total-price">₹10,999</div>
+                    </div>
+
+                    <!-- Submission Buttons -->
+                    <div class="space-y-3">
+                        <button type="button" onclick="sendInquiry('whatsapp')" class="w-full py-4 px-5 rounded-2xl bg-accent-600 hover:bg-accent-500 text-white font-semibold text-sm shadow-lg shadow-accent-600/25 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Send Plan Inquiry on WhatsApp</span>
+                        </button>
+                        <button type="button" onclick="sendInquiry('copy')" class="w-full py-3.5 px-5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copy Proposal Details / Book Call</span>
+                        </button>
+                    </div>
+
+                    <!-- Feedback Toast inside summary card -->
+                    <div id="inquiry-feedback" class="hidden mt-4 p-3.5 rounded-xl bg-brand-500/20 border border-brand-500/40 text-xs text-brand-200"></div>
+
+                    <p class="text-[11px] text-slate-400 text-center mt-5">
+                        Direct consultation with <strong>Souvik Roy</strong> (Software Engineer • 2+ Yrs Exp). Usually responds within 2 hours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section id="faq" class="py-16 sm:py-20 bg-white dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 dark:text-brand-400">Got Questions?</span>
+                <h2 class="font-display text-3xl font-bold mt-1 text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                    <button onclick="toggleFaq(0)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-white">
+                        <span>What is included in the 1 Year Free Hosting & Support across the ₹5,499, ₹10,999, and ₹25,000 plans?</span>
+                        <i id="faq-icon-0" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-0" class="px-6 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Every website package includes 1 full year of fast cloud hosting, free SSL security (HTTPS padlock), server setup, and technical support directly from me (Souvik Roy). If you ever face any bug, downtime, or need minor text/image tweaks during the first 12 months, it's covered at zero extra charge.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-white">
+                        <span>What happens after the 1st year of free hosting is over?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        There is no lock-in! After 12 months, you can either renew hosting & maintenance at a very nominal annual fee (starting around ₹1,999–₹3,499/year depending on site size), or you get 100% of your source code and database to host anywhere you like.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between font-semibold text-sm sm:text-base text-slate-900 dark:text-white">
+                        <span>How can you help automate my existing business workflow?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-xs text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        With 2+ years in the software industry, I build custom automation pipelines that connect your website with WhatsApp, Google Sheets, Email, Razorpay, and CRMs. For example: automatically sending a brochure on WhatsApp the moment a customer fills out your form, or generating PDF GST invoices automatically when an order is placed.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-600 text-white font-display font-bold flex items-center justify-center text-sm" id="footer-logo-initials">
+                    RT
+                </div>
+                <div>
+                    <div class="text-white font-display font-bold text-base" id="footer-brand-name">RoyTech Solutions</div>
+                    <div class="text-xs text-slate-500">Founded by <strong class="text-slate-300">Souvik Roy</strong> • Software Engineer (2+ Yrs Exp.)</div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-6 text-xs sm:text-sm">
+                <a href="#pricing" class="hover:text-white transition-colors">Basic Plan (₹5,499)</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Business Plan (₹10,999)</a>
+                <a href="#pricing" class="hover:text-white transition-colors">E-Commerce (₹25,000)</a>
+                <a href="#calculator" class="text-brand-400 hover:text-brand-300 font-semibold">Get Estimate</a>
+            </div>
+
+            <div class="text-xs text-slate-500">
+                © <span id="current-year">2026</span> Souvik Roy. All Plans Include 1 Year Hosting & Support.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // 1. Brand Options Data for Souvik Roy
+        const brandOptions = [
+            {
+                name: "RoyTech Solutions",
+                domain: "roytech.dev",
+                initials: "RT"
+            },
+            {
+                name: "AutomateWithSouvik",
+                domain: "souvikbuilds.in",
+                initials: "AS"
+            },
+            {
+                name: "SR Digital Labs",
+                domain: "srdigitallabs.com",
+                initials: "SR"
+            }
+        ];
+
+        let currentBrandIndex = 0;
+        let selectedPlanName = "Multi-Page Business Website";
+        let selectedBasePrice = 10999;
+
+        // Switch Brand Identity Live across Navbar, Cards, Estimator, and Footer
+        function setBrand(index) {
+            currentBrandIndex = index;
+            const brand = brandOptions[index];
+
+            // Update Navbar & Footer
+            document.getElementById('nav-brand-name').textContent = brand.name;
+            document.getElementById('nav-brand-domain').textContent = brand.domain;
+            document.getElementById('nav-logo-initials').textContent = brand.initials;
+            document.getElementById('footer-brand-name').textContent = brand.name;
+            document.getElementById('footer-logo-initials').textContent = brand.initials;
+            document.getElementById('summary-brand-title').textContent = brand.name;
+
+            // Update Top Banner Buttons
+            for (let i = 0; i < 3; i++) {
+                const btn = document.getElementById(`brand-btn-${i}`);
+                const card = document.getElementById(`brand-card-${i}`);
+                const check = document.getElementById(`brand-check-${i}`);
+
+                if (i === index) {
+                    btn.className = "brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-brand-600 text-white shadow-sm";
+                    card.className = "cursor-pointer rounded-2xl p-6 border-2 border-brand-500 bg-brand-500/5 dark:bg-brand-500/10 transition-all hover:-translate-y-1";
+                    check.className = "fa-solid fa-circle-check text-brand-500 text-lg";
+                } else {
+                    btn.className = "brand-switch-btn px-3 py-1 rounded-lg font-medium transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
+                    card.className = "cursor-pointer rounded-2xl p-6 border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 transition-all hover:-translate-y-1";
+                    check.className = "fa-regular fa-circle text-slate-400 text-lg";
+                }
+            }
+        }
+
+        // 2. Plan Selection & Live Price Calculator
+        function selectPlan(planName, price, scrollToCalc = true) {
+            selectedPlanName = planName;
+            selectedBasePrice = price;
+
+            // Highlight active plan button in calculator
+            const planPrices = [5499, 10999, 25000];
+            planPrices.forEach(p => {
+                const btn = document.getElementById(`calc-plan-${p}`);
+                if (p === price) {
+                    btn.className = "calc-plan-btn text-left p-4 rounded-2xl border-2 border-brand-500 bg-brand-500/10 transition-all";
+                } else {
+                    btn.className = "calc-plan-btn text-left p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all";
+                }
+            });
+
+            updateEstimate();
+
+            if (scrollToCalc) {
+                document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function formatINR(num) {
+            return "₹" + num.toLocaleString('en-IN');
+        }
+
+        function updateEstimate() {
+            document.getElementById('summary-plan-name').textContent = selectedPlanName;
+            document.getElementById('summary-base-price').textContent = formatINR(selectedBasePrice);
+
+            const checkboxes = document.querySelectorAll('.addon-checkbox:checked');
+            const addonsContainer = document.getElementById('summary-addons-list');
+            addonsContainer.innerHTML = '';
+
+            let addonsTotal = 0;
+            if (checkboxes.length > 0) {
+                addonsContainer.classList.remove('hidden');
+                checkboxes.forEach(cb => {
+                    const name = cb.getAttribute('data-name');
+                    const price = parseInt(cb.getAttribute('data-price'), 10);
+                    addonsTotal += price;
+
+                    const row = document.createElement('div');
+                    row.className = "flex items-center justify-between text-xs text-slate-300";
+                    row.innerHTML = `<span>+ ${name}</span><span class="font-semibold text-brand-400">${formatINR(price)}</span>`;
+                    addonsContainer.appendChild(row);
+                });
+            } else {
+                addonsContainer.classList.add('hidden');
+            }
+
+            const grandTotal = selectedBasePrice + addonsTotal;
+            document.getElementById('summary-total-price').textContent = formatINR(grandTotal);
+        }
+
+        // 3. Send Inquiry via WhatsApp or Copy Proposal Summary
+        function sendInquiry(mode) {
+            const clientName = document.getElementById('client-name').value.trim() || "Business Owner";
+            const clientPhone = document.getElementById('client-phone').value.trim() || "Not provided";
+            const clientNotes = document.getElementById('client-notes').value.trim() || "Interested in website & business automation.";
+            const brandName = brandOptions[currentBrandIndex].name;
+
+            const checkboxes = document.querySelectorAll('.addon-checkbox:checked');
+            let addonsList = [];
+            let addonsTotal = 0;
+            checkboxes.forEach(cb => {
+                addonsList.push(cb.getAttribute('data-name'));
+                addonsTotal += parseInt(cb.getAttribute('data-price'), 10);
+            });
+
+            const total = selectedBasePrice + addonsTotal;
+            const addonsText = addonsList.length > 0 ? addonsList.join(", ") : "None";
+
+            const message = `Hi Souvik Roy (${brandName}),\n\nI would like to book the *${selectedPlanName}* (${formatINR(selectedBasePrice)} - Includes 1 Year Free Hosting & Support).\n\n*Selected Add-ons:* ${addonsText}\n*Estimated Total:* ${formatINR(total)}\n\n*My Name:* ${clientName}\n*Contact:* ${clientPhone}\n*Requirement:* ${clientNotes}`;
+
+            const feedbackBox = document.getElementById('inquiry-feedback');
+            feedbackBox.classList.remove('hidden');
+
+            if (mode === 'whatsapp') {
+                const encoded = encodeURIComponent(message);
+                window.open(`https://wa.me/?text=${encoded}`, '_blank');
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check text-accent-400 mr-1.5"></i> Opening WhatsApp with your customized ${selectedPlanName} quote!`;
+            } else {
+                // Fallback clipboard copy for iFrame compatibility
+                const tempInput = document.createElement('textarea');
+                tempInput.value = message;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                feedbackBox.innerHTML = `<i class="fa-solid fa-check text-accent-400 mr-1.5"></i> Proposal summary copied to clipboard! You can paste it in an email or WhatsApp message to Souvik Roy.`;
+            }
+        }
+
+        // 4. FAQ Accordion Toggle
+        function toggleFaq(index) {
+            const content = document.getElementById(`faq-content-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 5. Dark / Light Theme Switcher
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                themeIcon.className = "fa-solid fa-moon text-slate-700";
+            } else {
+                htmlEl.classList.add('dark');
+                themeIcon.className = "fa-solid fa-sun text-amber-400";
+            }
+        }
+
+        // 6. Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
